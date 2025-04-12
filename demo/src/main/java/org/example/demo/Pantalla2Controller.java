@@ -29,7 +29,7 @@ public class Pantalla2Controller {
         nombreTableColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getNombre()));
         precioTableColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleDoubleProperty(data.getValue().getPrecio()).asObject());
 
-        tablaBocadillos.setItems(listaBocadillos);
+        tablaBocadillos.setItems(RepositorioBocadillos.getBocadillos());
     }
 
     public void irAPantallaHello() throws IOException {
@@ -48,7 +48,8 @@ public class Pantalla2Controller {
         }
 
         Bocadillo bocadillo = new Bocadillo(nombre,precio);
-        listaBocadillos.add(bocadillo);
+        //listaBocadillos.add(bocadillo);
+        RepositorioBocadillos.insertarPersona(bocadillo);
 
         System.out.println("Bocadillo creado: "+bocadillo.getNombre()+" con precio "+bocadillo.getPrecio()+"€");
 
